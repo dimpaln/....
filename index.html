@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Radhe Cafe | Chinese Food & Desserts</title>
+
+    <style>
+        /* =========================
+           RESET & GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffaf4;
+            color: #2d211b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #e63900;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #32170e;
+            margin: 8px 0 12px;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 26px;
+            border-radius: 30px;
+            background: #e63900;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #e63900;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #b92e00;
+            border-color: #b92e00;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #e63900;
+        }
+
+        .btn-outline:hover {
+            color: white;
+        }
+
+
+        /* =========================
+           TOP BAR
+        ========================== */
+
+        .top-bar {
+            background: #24120c;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar p {
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #32170e;
+        }
+
+        .logo span {
+            color: #e63900;
+        }
+
+        .logo small {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: #999;
+            text-align: center;
+            margin-top: -5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            color: #44332b;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e63900;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-btn {
+            background: #fff0e9;
+            color: #e63900;
+            padding: 10px 16px;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            background: #e63900;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20, 8, 3, 0.90),
+                    rgba(20, 8, 3, 0.60),
+                    rgba(20, 8, 3, 0.20)
+                ),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            color: #ffc107;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 68px;
+            line-height: 1.05;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: #ffb703;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #eee;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================== */
+
+        .features {
+            margin-top: -45px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-grid {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        .feature h3 {
+            color: #32170e;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .about-images img {
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background: #e63900;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .about-badge strong {
+            display: block;
+            font-size: 32px;
+        }
+
+        .about-text span {
+            color: #e63900;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin: 10px 0 20px;
+            color: #32170e;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           MENU
+        ========================== */
+
+        .menu-section {
+            background: #fff2e8;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0 25px;
+        }
+
+        .category-title h3 {
+            color: #32170e;
+            font-size: 28px;
+            white-space: nowrap;
+        }
+
+        .category-line {
+            height: 2px;
+            background: #e6cfc3;
+            flex: 1;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+        }
+
+        .menu-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .menu-card:hover .menu-image img {
+            transform: scale(1.06);
+        }
+
+        .popular {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ffb703;
+            color: #32170e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .menu-info h4 {
+            color: #32170e;
+            font-size: 20px;
+        }
+
+        .price {
+            color: #e63900;
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        .menu-info p {
+            color: #777;
+            font-size: 14px;
+            min-height: 45px;
+            margin-bottom: 15px;
+        }
+
+        .add-btn {
+            width: 100%;
+            border: 1px solid #e63900;
+            background: white;
+            color: #e63900;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #e63900;
+            color: white;
+        }
+
+
+        /* =========================
+           OFFER
+        ========================== */
+
+        .offer {
+            background:
+                linear-gradient(90deg, rgba(92,20,0,0.95), rgba(145,47,0,0.75)),
+                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 70px 0;
+        }
+
+        .offer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .offer h2 {
+            font-size: 42px;
+            color: #ffd166;
+        }
+
+        .offer p {
+            font-size: 18px;
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            text-align: center;
+            padding: 35px 20px;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            background: white;
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            margin: auto auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff0e9;
+            font-size: 30px;
+        }
+
+        .service h3 {
+            margin-bottom: 8px;
+            color: #32170e;
+        }
+
+        .service p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-section {
+            background: #24120c;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info > p {
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .contact-item-icon {
+            font-size: 25px;
+        }
+
+        .contact-item h4 {
+            color: #ffb703;
+        }
+
+        .contact-item p {
+            color: #ddd;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .contact-form h3 {
+            color: #32170e;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #e63900;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #150904;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #32170e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* =========================
+           CART MODAL
+        ========================== */
+
+        .cart-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-box {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .close-cart {
+            background: #eee;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item h4 {
+            font-size: 15px;
+        }
+
+        .cart-item p {
+            color: #e63900;
+            font-weight: bold;
+        }
+
+        .remove-item {
+            border: none;
+            background: #ffe9e3;
+            color: #e63900;
+            padding: 5px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .top-bar {
+                display: none;
+            }
+
+            .navbar {
+                min-height: 65px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .feature:last-child {
+                border-bottom: none;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2,
+            .about-text h2,
+            .contact-info h2 {
+                font-size: 32px;
+            }
+
+            .menu-grid,
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-images img {
+                height: 350px;
+            }
+
+            .about-badge {
+                right: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================== -->
+
+<div class="top-bar">
+    <div class="container top-bar-content">
+        <p>🍜 Fresh Chinese Food • 🍰 Delicious Desserts</p>
+        <p>Open Daily: 10:00 AM - 11:00 PM</p>
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            Radhe <span>Cafe</span>
+            <small>FOOD • LOVE • TASTE</small>
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="cart-btn" onclick="openCart()">
+                🛒 Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                Welcome to Radhe Cafe
+            </div>
+
+            <h1>
+                Great Food.<br>
+                <span>Great Moments.</span>
+            </h1>
+
+            <p>
+                Enjoy delicious Chinese dishes, crispy starters,
+                flavorful noodles, refreshing drinks and irresistible
+                desserts — all prepared fresh at Radhe Cafe.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="btn">
+                    Explore Our Menu
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Visit Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================== -->
+
+<section class="features">
+
+    <div class="container">
+
+        <div class="feature-grid">
+
+            <div class="feature">
+
+                <div class="feature-icon">🥢</div>
+
+                <h3>Fresh Ingredients</h3>
+
+                <p>
+                    Fresh and quality ingredients in every dish.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <div class="feature-icon">👨‍🍳</div>
+
+                <h3>Expert Chefs</h3>
+
+                <p>
+                    Carefully prepared by our experienced chefs.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <div class="feature-icon">❤️</div>
+
+                <h3>Made With Love</h3>
+
+                <p>
+                    Delicious food served with warm hospitality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-images">
+
+                <img
+                    src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
+                    alt="Radhe Cafe interior">
+
+                <div class="about-badge">
+                    <strong>10+</strong>
+                    Years of Taste
+                </div>
+
+            </div>
+
+            <div class="about-text">
+
+                <span>About Radhe Cafe</span>
+
+                <h2>
+                    A Place Where Food Meets Happiness
+                </h2>
+
+                <p>
+                    Welcome to Radhe Cafe, a cozy destination for
+                    food lovers who enjoy great taste and good company.
+                </p>
+
+                <p>
+                    From spicy Chinese noodles and crispy Manchurian
+                    to creamy desserts and refreshing beverages,
+                    our menu has something for everyone.
+                </p>
+
+                <p>
+                    We focus on fresh ingredients, delicious flavors
+                    and friendly service to make every visit memorable.
+                </p>
+
+                <a href="#menu" class="btn">
+                    View Menu
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================== -->
+
+<section class="section menu-section" id="menu">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Our Special Menu</span>
+
+            <h2>Delicious Food For Everyone</h2>
+
+            <p>
+                Explore our selection of Chinese favorites and
+                delicious desserts.
+            </p>
+
+        </div>
+
+
+        <!-- CHINESE STARTERS -->
+
+        <div class="category-title">
+
+            <h3>🥢 Chinese Starters</h3>
+
+            <div class="category-line"></div>
+
+        </div>
+
+        <div class="menu-grid">
+
+
+            <div class="menu-card">
+
+                <div class="menu-image">
+
+                    <span class="popular">
+                        ⭐ Popular
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                        alt="Veg Spring Rolls">
+
+                </div>
+
+                <div class="menu-info">
+
+                    <div class="menu-top">
+                        <h4>Veg Spring Rolls</h4>
+                        <span class="price">₹120</span>
+                    </div>
+
+                    <p>
+                        Crispy rolls filled with fresh vegetables
